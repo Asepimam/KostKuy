@@ -42,19 +42,19 @@ class BoardingHouseRepository implements BoardingHouseRepositoryInterface {
 
         if ($room) {
             $query->whereHas('rooms', function ($q) use ($room) {
-                $q->where('type', $room);
+                $q->where('id', $room);
             });
         }
 
         if ($category) {
             $query->whereHas('category', function ($q) use ($category) {
-                $q->where('name', $category);
+                $q->where('id', $category);
             });
         }
 
         if ($city) {
             $query->whereHas('city', function ($q) use ($city) {
-                $q->where('name', $city);
+                $q->where('id', $city);
             });
         }
 
