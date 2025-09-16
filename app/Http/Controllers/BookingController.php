@@ -17,4 +17,12 @@ class BookingController extends Controller
     public function checkBooking(){
         return view('pages.booking.checkBooking');
     }
+
+    public function detailBooking(Request $request){
+        $bookingid = $request->code;
+        $email = $request->email;
+        $phone = $request->phone;
+        $booking = $this->transactionRepository->findBooking($bookingid, $email, $phone);
+        return view('pages.booking.detailBooking', compact('booking'));
+    }
 }
