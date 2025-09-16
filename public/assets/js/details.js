@@ -1,6 +1,7 @@
 const swiperGallery = new Swiper('.swiper-gallery', {
-    slidesPerView: "auto",
-    spaceBetween: 10,
+    slidesPerView: 1,      // tampil 1 gambar penuh
+    spaceBetween: 0,       // tanpa jarak antar slide
+    loop: true,
 });
 const swiperTabs = new Swiper('.swiper-tab', {
     slidesPerView: "auto",
@@ -15,6 +16,7 @@ const tabLinks = document.querySelectorAll('.tab-link');
 // Add click event listener to each button
 tabLinks.forEach(button => {
     button.addEventListener('click', () => {
+        console.log('Tab button clicked');
         // Get the target tab id from the data attribute
         const targetTab = button.getAttribute('data-target-tab');
 
