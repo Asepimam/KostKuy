@@ -40,8 +40,18 @@ class TransactionRepository implements TransactionRepositoryInterface {
         return null;
     }
 
-    public function findByBookingId($bookingId)
+    public function findBooking($bookingId=null, $email = null, $phone = null)
     {
-        return Transaction::where('booking_id', $bookingId)->first();
+        $query = Transaction::query();
+        if($bookingId){
+            $query->where('id', $bookingId);
+        }
+        if($email){
+            $query->where('email', $email);
+        }
+        if($phone){
+            $query->where('phone', $phone);
+        }
+        return $query->first();
     }
 }
